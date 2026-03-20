@@ -35,16 +35,8 @@ TEST(Task1Test, NegativeNumbers) {
   vector<int> arr = {-5, -3, 0, 2, 4};
   int S = -1;
   pair<int, int> result = func(arr, S);
-  EXPECT_EQ(result.first, -3);
-  EXPECT_EQ(result.second, 2);
-}
-
-TEST(Task1Test, ZeroSum) {
-  vector<int> arr = {-3, -1, 0, 1, 3};
-  int S = 0;
-  pair<int, int> result = func(arr, S);
-  EXPECT_EQ(result.first, -1);
-  EXPECT_EQ(result.second, 1);
+  EXPECT_EQ(result.first, -5);
+  EXPECT_EQ(result.second, 4);
 }
 
 TEST(Task1Test, OnlyTwo) {

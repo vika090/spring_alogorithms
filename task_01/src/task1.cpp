@@ -5,7 +5,7 @@
 
 using namespace std;
 
-pair<int, int> func(const vector<int>& arr, int S) {
+pair<int, int> func(const vector<int>& arr, int Summa) {
   if (arr.size() < 2) {
     return {-1, -1};
   }
@@ -16,9 +16,9 @@ pair<int, int> func(const vector<int>& arr, int S) {
   while (left < right) {
     int sum = arr[left] + arr[right];
 
-    if (sum == S) {
+    if (sum == Summa) {
       return {arr[left], arr[right]};
-    } else if (sum < S) {
+    } else if (sum < Summa) {
       left++;
     } else {
       right--;
