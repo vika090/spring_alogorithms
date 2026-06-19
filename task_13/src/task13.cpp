@@ -12,6 +12,10 @@ std::vector<std::pair<int, int>> chooseLessons(
     std::vector<std::pair<double, double>> lessonstime) {
   int n = lessonstime.size();
 
+  if (n == 0) {
+    return {};
+  }
+
   std::vector<std::pair<int, int>> lessons;
   for (int i = 0; i < n; i++) {
     int start = hourstominutes(lessonstime[i].first);
