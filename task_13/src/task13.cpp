@@ -4,7 +4,9 @@
 
 int hourstominutes(double time) {
   int hours = static_cast<int>(time);
-  int minutes = static_cast<int>((time - hours) * 60);
+  // Берем дробную часть и умножаем на 100, чтобы получить минуты
+  // Например: 9.3 -> 30 минут (0.3 * 100 = 30)
+  int minutes = static_cast<int>((time - hours) * 100);
   return hours * 60 + minutes;
 }
 
