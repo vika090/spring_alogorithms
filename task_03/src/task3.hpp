@@ -1,8 +1,8 @@
 #ifndef TASK3_HPP
 #define TASK3_HPP
 
-#include <vector>
 #include <string>
+#include <vector>
 
 std::vector<std::string> letterCombinations(const std::string& digits);
 

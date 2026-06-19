@@ -1,5 +1,4 @@
 #include "task6.hpp"
-#include <algorithm>
 #include <vector>
 
 using namespace std;
