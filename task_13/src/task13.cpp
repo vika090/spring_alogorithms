@@ -1,12 +1,13 @@
 #include "task13.hpp"
-
 #include <algorithm>
 
 int hourstominutes(double time) {
   int hours = static_cast<int>(time);
-  // Берем дробную часть и умножаем на 100, чтобы получить минуты
-  // Например: 9.3 -> 30 минут (0.3 * 100 = 30)
-  int minutes = static_cast<int>((time - hours) * 100);
+  int minutes = static_cast<int>((time - hours) * 100 + 0.5);
+  if (minutes == 60) {
+    hours++;
+    minutes = 0;
+  }
   return hours * 60 + minutes;
 }
 
