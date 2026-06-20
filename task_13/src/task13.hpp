@@ -6,6 +6,6 @@
 
 int hourstominutes(double time);
 std::vector<std::pair<int, int>> chooseLessons(
-    std::vector<std::pair<double, double>> lessonstime);
+    const std::vector<std::pair<double, double>>& lessonstime);
 
 #endif

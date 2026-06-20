@@ -1,5 +1,7 @@
 #include "task13.hpp"
+
 #include <algorithm>
+#include <cmath>
 
 int hourstominutes(double time) {
   int hours = static_cast<int>(time);
@@ -12,13 +14,15 @@ int hourstominutes(double time) {
 }
 
 std::vector<std::pair<int, int>> chooseLessons(
-    std::vector<std::pair<double, double>> lessonstime) {
+    const std::vector<std::pair<double, double>>& lessonstime) {
   int n = lessonstime.size();
 
+  // Пустой вход - пустой результат
   if (n == 0) {
     return {};
   }
 
+  // Конвертируем время в минуты
   std::vector<std::pair<int, int>> lessons;
   for (int i = 0; i < n; i++) {
     int start = hourstominutes(lessonstime[i].first);
@@ -26,9 +30,13 @@ std::vector<std::pair<int, int>> chooseLessons(
     lessons.push_back({start, end});
   }
 
-  std::sort(lessons.begin(), lessons.end(),
-            [](const auto& a, const auto& b) { return a.second < b.second; });
+  // Сортируем по времени окончания (жадный алгоритм)
+  std::sort(lessons.begin(), lessons.end(), [](const auto& a, const auto& b) {
+    if (a.second != b.second) return a.second < b.second;
+    return a.first < b.first;
+  });
 
+  // Выбираем уроки
   std::vector<std::pair<int, int>> schedule;
   schedule.push_back(lessons[0]);
 
