@@ -1,22 +1,15 @@
-cat > src / task13.cpp << 'EOF'
 #include "task13.hpp"
 
 #include <algorithm>
 #include <cmath>
-#include <string>
 
-          int
-          hourstominutes(double time) {
+int hourstominutes(double time) {
   int hours = static_cast<int>(time);
-  double fractional = time - hours;
-
-  int minutes = static_cast<int>(std::round(fractional * 60));
-
+  int minutes = static_cast<int>(std::round((time - hours) * 60));
   if (minutes == 60) {
     hours++;
     minutes = 0;
   }
-
   return hours * 60 + minutes;
 }
 
@@ -35,10 +28,11 @@ std::vector<std::pair<int, int>> chooseLessons(
     lessons.push_back({start, end});
   }
 
-  std::sort(lessons.begin(), lessons.end(), [](const auto& a, const auto& b) {
-    if (a.second != b.second) return a.second < b.second;
-    return a.first < b.first;
-  });
+  std::sort(lessons.begin(), lessons.end(),
+            [](const auto& a, const auto& b) {
+              if (a.second != b.second) return a.second < b.second;
+              return a.first < b.first;
+            });
 
   std::vector<std::pair<int, int>> schedule;
   schedule.push_back(lessons[0]);
