@@ -8,14 +8,14 @@ int main() {
   int n;
   std::cin >> n;
 
-  std::vector<std::pair<double, double>> lessonstime;
+  std::vector<std::pair<double, double>> lessons;
   for (int i = 0; i < n; i++) {
     double start, finish;
     std::cin >> start >> finish;
-    lessonstime.push_back({start, finish});
+    lessons.push_back({start, finish});
   }
 
-  std::vector<std::pair<double, double>> result = chooseLessons(lessonstime);
+  std::vector<std::pair<double, double>> result = func(n, lessons);
 
   std::cout << result.size() << std::endl;
   for (const auto& lesson : result) {

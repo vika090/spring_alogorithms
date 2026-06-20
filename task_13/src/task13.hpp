@@ -4,7 +4,7 @@
 #include <utility>
 #include <vector>
 
-std::vector<std::pair<double, double>> chooseLessons(
-    const std::vector<std::pair<double, double>>& lessonstime);
+std::vector<std::pair<double, double>> func(
+    int n, std::vector<std::pair<double, double>>& lessons);
 
 #endif
